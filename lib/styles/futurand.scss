@@ -1,0 +1,63 @@
+$futurand-font-path: '../fonts/futurand';
+
+@font-face {
+  font-family: 'Futura ND';
+  font-display: swap;
+  font-weight: 100 300;
+  src: url('#{$futurand-font-path}/futurand-light.woff2') format('woff2'),
+    url('#{$futurand-font-path}/futurand-light.woff') format('woff');
+}
+@font-face {
+  font-family: 'Futura ND';
+  font-display: swap;
+  font-weight: 100 300;
+  font-style: oblique;
+  src: url('#{$futurand-font-path}/futurand-light-oblique.woff2')
+      format('woff2'),
+    url('#{$futurand-font-path}/futurand-light-oblique.woff') format('woff');
+}
+@font-face {
+  font-family: 'Futura ND';
+  font-display: swap;
+  font-weight: 400;
+  src: url('#{$futurand-font-path}/futurand-book.woff2') format('woff2'),
+    url('#{$futurand-font-path}/futurand-book.woff') format('woff');
+}
+@font-face {
+  font-family: 'Futura ND';
+  font-display: swap;
+  font-weight: 500 600;
+  src: url('#{$futurand-font-path}/futurand-medium.woff2') format('woff2'),
+    url('#{$futurand-font-path}/futurand-medium.woff') format('woff');
+}
+@font-face {
+  font-family: 'Futura ND';
+  font-display: swap;
+  font-weight: 700 800;
+  src: url('#{$futurand-font-path}/futurand-demibold.woff2') format('woff2'),
+    url('#{$futurand-font-path}/futurand-demibold.woff') format('woff');
+}
+@font-face {
+  font-family: 'Futura ND';
+  font-display: swap;
+  font-weight: 700 800;
+  font-style: oblique;
+  src: url('#{$futurand-font-path}/futurand-demibold-oblique.woff2')
+      format('woff2'),
+    url('#{$futurand-font-path}/futurand-demibold-oblique.woff') format('woff');
+}
+@font-face {
+  font-family: 'Futura ND';
+  font-display: swap;
+  font-weight: 900;
+  src: url('#{$futurand-font-path}/futurand-bold.woff2') format('woff2'),
+    url('#{$futurand-font-path}/futurand-bold.woff') format('woff');
+}
+@font-face {
+  font-family: 'Futura ND';
+  font-display: swap;
+  font-weight: 900;
+  font-style: oblique;
+  src: url('#{$futurand-font-path}/futurand-bold-oblique.woff2') format('woff2'),
+    url('#{$futurand-font-path}/futurand-bold-oblique.woff') format('woff');
+}

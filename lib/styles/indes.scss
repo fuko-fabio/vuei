@@ -1,0 +1,211 @@
+@use 'sass:math';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import './futurand';
+
+$font-size-root: 16px;
+
+@function sp($sp) {
+  @return math.div($sp, math.div($font-size-root, 1px)) * 1rem;
+}
+
+@layer base {
+  // Headline XXL
+  .h1 {
+    font-size: sp(72);
+    font-weight: 700;
+    line-height: sp(88);
+    letter-spacing: sp(-1.7);
+
+    &.stroke {
+      color: transparent;
+      text-stroke: 2px #fff;
+      -webkit-text-stroke: 2px #fff;
+    }
+  }
+  // Headline XL
+  .h2 {
+    font-size: sp(48);
+    font-weight: 500;
+    line-height: sp(64);
+    letter-spacing: sp(-1);
+
+    &.stroke {
+      color: transparent;
+      text-stroke: 1px #fff;
+      -webkit-text-stroke: 1px #fff;
+    }
+  }
+  // Headline L
+  .h3 {
+    font-size: sp(34);
+    font-weight: 500;
+    line-height: sp(48);
+    letter-spacing: sp(-0.5);
+
+    @screen sm-and-down {
+      font-size: sp(28);
+      letter-spacing: sp(-0.25);
+      line-height: sp(40);
+    }
+  }
+  // Headline M
+  .h4 {
+    font-size: sp(24);
+    font-weight: 500;
+    line-height: sp(34);
+    letter-spacing: sp(-0.25);
+  }
+  // Headline S
+  .h5 {
+    font-size: sp(20);
+    font-weight: 500;
+    line-height: sp(31);
+    letter-spacing: 0;
+
+    @screen sm-and-down {
+      font-size: sp(18);
+      letter-spacing: 0;
+      line-height: sp(27);
+    }
+  }
+  // Headline SX
+  .h6 {
+    font-size: sp(16);
+    font-weight: 700;
+    line-height: sp(24);
+    letter-spacing: 0;
+  }
+  // Body L (custom)
+  .body {
+    font-size: sp(20);
+    font-weight: 400;
+    line-height: sp(30);
+    letter-spacing: 0;
+    text-transform: false;
+  }
+  // Body M
+  .body-1 {
+    font-size: sp(16);
+    font-weight: 400;
+    line-height: sp(24);
+  }
+  // Body S
+  .body-2 {
+    font-size: sp(14);
+    font-weight: 400;
+    line-height: sp(20);
+    letter-spacing: sp(0.25);
+  }
+  // Article Body from Figma
+  .article-body {
+    font-size: sp(20);
+    font-weight: 400;
+    line-height: sp(31);
+    text-transform: false;
+  }
+  // S Label from Figma
+  .label-s {
+    font-size: sp(12);
+    font-weight: 400;
+    line-height: sp(16);
+    letter-spacing: sp(0.25);
+  }
+  // Subline
+  .subline {
+    font-size: sp(24);
+    font-weight: 400;
+    line-height: sp(36);
+    letter-spacing: sp(-0.25);
+    text-transform: false;
+
+    @screen sm-and-down {
+      font-size: sp(19);
+      letter-spacing: sp(-0.25);
+      line-height: sp(30);
+    }
+  }
+  // Button L
+  .button {
+    font-size: sp(14);
+    font-weight: 900;
+    line-height: 1rem;
+    letter-spacing: 0;
+    text-transform: uppercase;
+  }
+  // Button S/M (custom)
+  .button-s {
+    font-size: sp(12);
+    font-weight: 900;
+    line-height: 1rem;
+    letter-spacing: 0;
+    text-transform: uppercase;
+  }
+  // Not defined by design
+  .subtitle-1 {
+    font-size: sp(16);
+    font-weight: 400;
+    line-height: sp(22);
+    letter-spacing: sp(0.25);
+    text-transform: false;
+  }
+  // Not defined by design
+  .subtitle-2 {
+    font-size: sp(14);
+    font-weight: 400;
+    line-height: sp(22);
+    letter-spacing: sp(0.25);
+    text-transform: false;
+  }
+  // Not defined by design
+  .caption {
+    font-size: sp(12);
+    font-weight: 400;
+    line-height: 1rem;
+    letter-spacing: sp(0.25);
+  }
+  // Overline
+  .overline {
+    font-size: sp(12);
+    font-weight: 500;
+    line-height: 1rem;
+    letter-spacing: 0;
+    text-transform: uppercase;
+  }
+  // Overline S (custom)
+  .overline-s {
+    font-size: sp(10);
+    font-weight: 900;
+    line-height: 1rem;
+    letter-spacing: 0;
+    text-transform: uppercase;
+  }
+  // Article body (custom)
+  .article {
+    font-size: sp(20);
+    font-weight: 400;
+    line-height: sp(31);
+    letter-spacing: 0;
+    text-transform: false;
+
+    @screen sm-and-down {
+      font-size: sp(18);
+      line-height: sp(28);
+    }
+  }
+  // Quote (custom)
+  .quote {
+    font-size: sp(34);
+    font-weight: 400;
+    line-height: sp(48);
+    letter-spacing: sp(-0.75);
+    text-transform: false;
+
+    @screen sm-and-down {
+      font-size: sp(24);
+      letter-spacing: sp(-0.66);
+      line-height: sp(34);
+    }
+  }
+}
