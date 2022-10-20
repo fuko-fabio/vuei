@@ -3,6 +3,12 @@
   "include": ["vite.config.*", "vitest.config.*", "cypress.config.*"],
   "compilerOptions": {
     "composite": true,
-    "types": ["node"]
+    "declaration": true,
+    "declarationMap": true,
+    "declarationDir": "dist",
+    "newLine": "lf",
+    "paths": { "@/*": ["./lib/*"] },
+    "lib": ["ESNext", "DOM"],
+    "types": ["vite/client", "vue"]
   }
 }

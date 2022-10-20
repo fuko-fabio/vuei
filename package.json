@@ -1,29 +1,33 @@
 {
+  "$schema": "https://json.schemastore.org/package.json",
   "name": "@fuko-fabio/vuei",
-  "version": "0.0.2",
+  "version": "0.0.8",
   "author": "Norbert Pabian",
   "engineStrict": true,
   "engines": {
     "node": ">=14.18.0"
   },
-  "main": "dist/omr-ui.umd.js",
-  "module": "dist/omr-ui.mjs",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "files": [
     "dist/*"
   ],
   "scripts": {
     "dev": "start-storybook -p 6006",
-    "build": "vite build",
+    "build": "vite build && vue-tsc --declaration --emitDeclarationOnly",
     "build:storybook": "build-storybook",
-    "test": "vitest --environment jsdom",
-    "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
+    "test": "vue-demi-switch 3 && vitest --environment jsdom",
+    "test:vue2": "vue-demi-switch 2 vue2 && vitest --environment jsdom",
+    "typecheck": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
     "vue-demi": "^0.13.11"
   },
   "peerDependencies": {
-    "vue": "^2.7.0 || >=3.2.0"
+    "vue": "^2.7.0 || >=3.2.0",
+    "@vue/composition-api": "^1.7.1"
   },
   "peerDependenciesMeta": {
     "@vue/composition-api": {
@@ -42,6 +46,7 @@
     "@types/node": "^16.11.56",
     "@vitejs/plugin-vue": "^3.0.3",
     "@vitejs/plugin-vue-jsx": "^2.0.1",
+    "@vue/composition-api": "^1.7.1",
     "@vue/eslint-config-prettier": "^7.0.0",
     "@vue/eslint-config-typescript": "^11.0.0",
     "@vue/test-utils": "^2.0.2",
@@ -59,6 +64,7 @@
     "vite": "^3.0.9",
     "vitest": "^0.24.1",
     "vue": "^3.2.38",
-    "vue-tsc": "1.0.7"
+    "vue-tsc": "1.0.7",
+    "vue2": "npm:vue@2"
   }
 }

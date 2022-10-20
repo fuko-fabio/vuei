@@ -1,35 +1,5 @@
-<template>
-  <div class="relative flex items-center h-screen mb-0 overflow-hidden">
-    <div
-      class="relative container mx-auto z-30 md:max-w-6xl text-2xl text-white bg-purple-300 bg-opacity-50 rounded-xl p-3"
-    >
-      <h1 v-if="title" class="h2 xs:h1 stroke uppercase whitespace-pre-wrap">
-        {{ title }}
-      </h1>
-      <h4 v-if="subhead">{{ subhead }}</h4>
-      <h4 v-if="description">{{ description }}</h4>
-    </div>
-    <img
-      v-if="background"
-      :alt="title"
-      class="heroBackground"
-      :src="background.url"
-    />
-    <video
-      v-if="video"
-      autoplay
-      class="heroBackground"
-      loop
-      muted
-      :src="video.url"
-      :type="video.mimeType"
-    />
-  </div>
-</template>
-
 <script lang="ts">
-import { defineComponent } from 'vue-demi'
-import type { PropType } from 'vue-demi'
+import { defineComponent, h, type PropType } from 'vue-demi'
 
 interface SectionHeroProps {
   video?: {
@@ -50,6 +20,7 @@ interface SectionHeroProps {
  * It can render beautiful hero!
  */
 export default defineComponent({
+  name: 'SectionHero',
   props: {
     /**
      * Main banner title
@@ -80,10 +51,65 @@ export default defineComponent({
       default: undefined,
     },
   },
+  render() {
+    const headline = this.title
+      ? h(
+          'h1',
+          {
+            class: 'h2 xs:h1 stroke uppercase whitespace-pre-wrap',
+          },
+          this.title,
+        )
+      : undefined
+    const subhead = this.subhead ? h('h4', {}, this.subhead) : undefined
+    const description = this.subhead ? h('h4', {}, this.description) : undefined
+    const img = this.background
+      ? h('img', {
+          [`${this.$options.__scopeId}`]: '',
+          class: 'heroBackground',
+          attrs: {
+            alt: this.title,
+            src: this.background.url,
+          },
+        })
+      : undefined
+    const video = this.video
+      ? h('video', {
+          [`${this.$options.__scopeId}`]: '',
+          class: 'heroBackground',
+          attrs: {
+            autoplay: true,
+            loop: true,
+            muted: true,
+            src: this.video.url,
+            type: this.video.mimeType,
+          },
+        })
+      : undefined
+
+    return h(
+      'div',
+      {
+        class: 'relative flex items-center h-screen mb-0 overflow-hidden',
+      },
+      [
+        h(
+          'div',
+          {
+            class:
+              'relative container mx-auto z-30 md:max-w-6xl text-2xl text-white bg-purple-300 bg-opacity-50 rounded-xl p-3',
+          },
+          [headline, subhead, description],
+        ),
+        img,
+        video,
+      ],
+    )
+  },
 })
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .heroBackground {
   @apply absolute z-10 w-auto min-w-full max-w-none min-h-full;
 }

@@ -17,22 +17,27 @@ export default defineConfig({
     lib: {
       // Could also be a dictionary or array of multiple entry points
       entry: resolve(__dirname, 'lib/index.ts'),
-      name: 'omr-ui',
+      name: 'vuei',
       // the proper extensions will be added
-      fileName: 'omr-ui',
+      fileName: 'index',
+      formats: ['umd', 'es'],
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled
       // into your library
-      external: ['vue'],
+      external: ['vue-demi', 'vue'],
       output: {
+        exports: 'named',
         // Provide global variables to use in the UMD build
         // for externalized deps
         globals: {
+          'vue-demi': 'VueDemi',
           vue: 'Vue',
         },
       },
     },
+    target: 'esnext',
+    minify: false,
   },
   optimizeDeps: {
     exclude: ['vue-demi'],
